@@ -1,0 +1,17 @@
+C:\Users\Aitana\RiderProjects\ForumApp\Application\bin\Debug\net6.0\Application.deps.json
+C:\Users\Aitana\RiderProjects\ForumApp\Application\bin\Debug\net6.0\Application.dll
+C:\Users\Aitana\RiderProjects\ForumApp\Application\bin\Debug\net6.0\ref\Application.dll
+C:\Users\Aitana\RiderProjects\ForumApp\Application\bin\Debug\net6.0\Application.pdb
+C:\Users\Aitana\RiderProjects\ForumApp\Application\bin\Debug\net6.0\Contracts.dll
+C:\Users\Aitana\RiderProjects\ForumApp\Application\bin\Debug\net6.0\Entities.dll
+C:\Users\Aitana\RiderProjects\ForumApp\Application\bin\Debug\net6.0\Contracts.pdb
+C:\Users\Aitana\RiderProjects\ForumApp\Application\bin\Debug\net6.0\Entities.pdb
+C:\Users\Aitana\RiderProjects\ForumApp\Application\obj\Debug\net6.0\Application.csproj.AssemblyReference.cache
+C:\Users\Aitana\RiderProjects\ForumApp\Application\obj\Debug\net6.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aitana\RiderProjects\ForumApp\Application\obj\Debug\net6.0\Application.AssemblyInfoInputs.cache
+C:\Users\Aitana\RiderProjects\ForumApp\Application\obj\Debug\net6.0\Application.AssemblyInfo.cs
+C:\Users\Aitana\RiderProjects\ForumApp\Application\obj\Debug\net6.0\Application.csproj.CoreCompileInputs.cache
+C:\Users\Aitana\RiderProjects\ForumApp\Application\obj\Debug\net6.0\Application.csproj.CopyComplete
+C:\Users\Aitana\RiderProjects\ForumApp\Application\obj\Debug\net6.0\Application.dll
+C:\Users\Aitana\RiderProjects\ForumApp\Application\obj\Debug\net6.0\ref\Application.dll
+C:\Users\Aitana\RiderProjects\ForumApp\Application\obj\Debug\net6.0\Application.pdb

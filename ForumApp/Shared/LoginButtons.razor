@@ -1,0 +1,33 @@
+﻿@page "/logoutButton"
+@using Contracts.Interfaces
+
+@inject NavigationManager navMgr
+@inject IAuthService authService
+
+<AuthorizeView>
+    <Authorized>
+        <div class="button">
+            <b>Log Out <img class="icon" src="img/Logout.png" @onclick="Logout"/></b>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="button">
+            <b>Log In <img class="icon" src="img/Login.png" @onclick="Login"/></b>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+    private void Login()
+    {
+        navMgr.NavigateTo("/Login");
+    }
+
+    private async Task Logout()
+    {
+        await authService.LogoutAsync();
+        navMgr.NavigateTo("/Login");
+    }
+
+}

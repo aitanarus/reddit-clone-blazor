@@ -1,0 +1,13 @@
+﻿@using Contracts.Interfaces
+@inherits LayoutComponentBase
+@inject IAuthService _authService;
+
+<div class="page">
+    <main>
+        <RadzenNavMenu/>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+                  

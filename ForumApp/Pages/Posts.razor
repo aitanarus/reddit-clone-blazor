@@ -1,0 +1,67 @@
+﻿
+@page "/posts"
+@using Entities.Models
+@using Application.NewPost
+@inject IPostDAO postDAO
+@inject NavigationManager navMgr
+
+@if (posts == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else if (!posts.Any())
+{
+    <p>
+        <em>No posts items exist. Please add some.</em>
+    </p>
+}
+else
+{
+    <RadzenPanel AllowCollapse="false" Style="width: 100%;  background-color: #2E2F30" >
+        <ChildContent>
+            <RadzenCard Class="mt-3" Style="background-color: #DAE0E6 ; border: none">
+                <RadzenDataList PageSize="10" WrapItems="true" AllowPaging="true" 
+                                Data="@posts" TItem="Post" >
+                    <Template Context="post">
+                        <RadzenCard Style="width: 250px">
+                            <div class="row">
+                                <div class="col-md-8 text-truncate">
+                                    <RadzenBadge BadgeStyle="BadgeStyle.Light" Text=@($"{post.WrittenBy}") Class="mr-1" />
+                                    <b>@(post.Header)</b>
+                                </div>
+                            </div>
+                            <hr style="border: none; background-color: rgba(0,0,0,.08); height: 1px; margin: 1rem 0;" />
+                            <div class="d-flex flex-row align-items-center">
+                                <div>
+                                    <h4 class="mb-0">@(post.Body)</h4>
+                                </div>
+                            </div>
+                            <RadzenButton Style="margin-top: 20px" Text="Read More" Icon="add_circle_outline" ButtonStyle="ButtonStyle.Primary" Click=@(args => OnPostClicked(post))></RadzenButton>
+                        </RadzenCard>
+                    </Template>
+                </RadzenDataList>
+            </RadzenCard>
+        </ChildContent>
+    </RadzenPanel>
+}
+
+
+
+@code {
+    private ICollection<Post> posts;
+    private int avgVotes;
+
+    protected override async Task OnInitializedAsync()
+    {
+      posts = await postDAO.GetAsync();
+    }
+
+    private void OnPostClicked(Post item)
+    {
+        navMgr.NavigateTo($"/fullpost/{item.Id}");
+       // navMgr.NavigateTo("/fullpost");
+    }
+
+}

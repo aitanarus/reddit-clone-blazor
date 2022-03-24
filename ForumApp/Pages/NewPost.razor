@@ -1,0 +1,77 @@
+﻿@page "/newpost"
+@using Entities.Models
+@using Microsoft.AspNetCore.Components
+@using Contracts.Interfaces
+@using System.Security.Claims
+@using Application.NewPost
+@inject IAuthService authService
+@inject IPostDAO postDAO
+@inject NavigationManager navMgr
+
+@attribute [Authorize]
+
+<h3>New Post</h3>
+
+<div class="box">
+    <EditForm Model="@newPost" OnValidSubmit="@AddNewPostAsync">
+            <DataAnnotationsValidator/>
+            <ValidationSummary/>
+            <div class="form-group field">
+                <span>
+                    <label>Header: </label>
+                </span>
+                <span>
+                    <InputTextArea @bind-Value="newPost.Header"/>
+                </span>
+            </div>
+            <div class="form-group field">
+                <span>
+                    <label>Body: </label>
+                </span>
+                <span>
+                    <InputTextArea rows="4" @bind-Value="newPost.Body"/>
+                </span>
+            </div>
+            <p class="actions">
+                <RadzenButton Click=@(args => AddNewPostAsync()) Text="Publish" Icon="check_circle" ButtonStyle="ButtonStyle.Success"></RadzenButton>
+            </p>
+        </EditForm>
+        @if (!string.IsNullOrEmpty(errorLabel))
+        {
+            <label>@errorLabel</label>
+        }
+</div>
+
+
+@code {
+    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    private string? name;
+    private IEnumerable<Claim>? userClaims;
+   
+    
+    private Post newPost = new Post();
+    private string errorLabel;
+    
+    private async Task AddNewPostAsync()
+    {
+        errorLabel = "";
+        try
+        {
+            AuthenticationState authState = await AuthState;
+            ClaimsPrincipal user = authState.User;
+
+            userClaims = user.Claims;
+            name = user.Identity!.Name!;
+            
+            await postDAO.AddAsync(new Post(newPost.Header, newPost.Body, new List<Vote>(), new List<Comment>(), name));
+        }
+        catch (Exception e)
+        {
+            errorLabel = e.Message;
+            return;
+        }
+        navMgr.NavigateTo("/posts");
+    }
+}

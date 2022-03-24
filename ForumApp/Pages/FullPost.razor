@@ -1,0 +1,141 @@
+﻿@page "/fullpost/{PathParam}"
+
+@page "/fullpost"
+@using Application.NewPost
+@using Entities.Models
+
+@inject IPostDAO postDAO
+
+@attribute [Authorize]
+
+
+<div class="container">
+    
+    <!--Post Description -->
+    
+    <div class="row">
+        <div class="col">
+            <RadzenCard Style="width: 100%" Data="@post" TItem="Post">
+                <div class="row">
+                    <div class="col-md-8 text-truncate">
+                        <RadzenBadge BadgeStyle="BadgeStyle.Light" Text=@($"{post.WrittenBy}") Class="mr-1"/>
+                        <b>@(post.Header)</b>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 text-truncate">
+                            <RadzenRating ReadOnly="true" Stars="5" @bind-Value="avgVotes" />
+                            <RadzenLabel Text=@($"{numberOfVotes}") />
+                        </div>
+                    </div>
+                </div>
+                <hr style="border: none; background-color: rgba(0,0,0,.08); height: 1px; margin: 1rem 0 3rem 0;"/>
+                <div class="d-flex flex-row align-items-center">
+                    <div style="margin-bottom: 45px">
+                        <h4 class="mb-0">@(post.Body)</h4>
+                    </div>
+                </div>
+            </RadzenCard>
+        </div>
+        
+        <!-- New Vote -->
+        <div class="col">
+            <RadzenCard Style="width: 100%" Data="@post" TItem="Post">
+                <div>
+                    <RadzenRating @bind-Value=@value Stars="5"/>
+                    <EditForm Model="@newComment" OnValidSubmit="@OnAddNewCommentAndVoteAsync">
+                        <DataAnnotationsValidator/>
+                        <ValidationSummary/>
+                        <form>
+                            <div>
+                                <InputTextArea Placeholder="Leave a comment..." @bind-Value="newComment.Body"/>
+                            </div>
+                        </form>
+                    </EditForm>
+                    <RadzenButton Text="Vote" Icon="add_circle_outline" ButtonStyle="ButtonStyle.Primary" Click=@(args => OnAddNewCommentAndVoteAsync())></RadzenButton>
+                </div>
+            </RadzenCard>
+        </div>
+
+        @if (!string.IsNullOrEmpty(errorLabel))
+        {
+            <label>@errorLabel</label>
+        }
+    </div>
+    
+      
+    <!--Comment Section -->
+    
+    <div class="row" style="border: none; margin-top: 25px;">
+        <div>
+            <h3>Comment Section</h3>
+        </div>
+
+        <RadzenDataList WrapItems="true" AllowPaging="true" Data="@comments" TItem="Comment" PageSize="5" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true">
+            <Template Context="comment">
+                <RadzenCard Style="width: 50%; padding: 0; overflow: hidden;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col product-title">
+                                @(comment.WrittenBy)
+                            </div>
+                            <div class="col-6">
+                                <div class="row d-flex">
+                                    <p class="mb-sm-2 mb-lg-0">@(comment.Body)</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="d-inline-block">
+                                    <h5>Votes</h5>
+                                    <p>@(comment.Votes.Count)</p>
+                                    <RadzenButton Text="Vote"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </RadzenCard>
+            </Template>
+        </RadzenDataList>
+    </div>
+</div>
+
+
+
+@code {
+    [Parameter]
+    public string PathParam { get; set; }
+    
+    private Post post;
+    private string numberOfVotes;
+    private int avgVotes;
+    private int value;
+    
+    private ICollection<Comment> comments;
+    private Comment newComment = new Comment();
+    
+    private string errorLabel;
+
+    protected override async Task OnInitializedAsync()
+    {
+        post = await postDAO.GetById(Convert.ToInt32(PathParam));
+        comments = post.Comments;
+        try
+        {
+            avgVotes = (int) post.Votes.Average(v => v.Value);
+            numberOfVotes = "Votes: " + post.Votes.Count;
+        }
+        catch (InvalidOperationException e)
+        {
+            avgVotes = 0;
+        }
+    }
+
+    private async Task OnAddNewCommentAndVoteAsync()
+    {
+        await postDAO.UpdateCommentsAndVotesAsync(post, new Comment(newComment.Body, new List<Vote>(), post.WrittenBy), new Vote(value, post.WrittenBy));
+        post = await postDAO.GetById(Convert.ToInt32(PathParam));
+        comments = post.Comments;
+        numberOfVotes = "Votes: " + post.Votes.Count;
+        avgVotes = (int) post.Votes.Average(v => v.Value);
+    }
+
+}
