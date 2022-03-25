@@ -24,6 +24,14 @@
         {
           "Value": 5,
           "User": "Troels"
+        },
+        {
+          "Value": 3,
+          "User": "Troels"
+        },
+        {
+          "Value": 5,
+          "User": "Troels"
         }
       ],
       "Comments": [
@@ -38,53 +46,67 @@
           "ParentComment": null,
           "Votes": [],
           "WrittenBy": "Troels"
+        },
+        {
+          "Body": "hellooo",
+          "ParentComment": null,
+          "Votes": [],
+          "WrittenBy": "Troels"
+        },
+        {
+          "Body": "hellooo",
+          "ParentComment": null,
+          "Votes": [],
+          "WrittenBy": "Troels"
         }
       ],
       "WrittenBy": "Troels"
     },
     {
       "Id": 2,
-      "Header": "This is Maria",
-      "Body": "Hellooo",
+      "Header": "Another",
+      "Body": null,
       "Votes": [
         {
-          "Value": 3,
-          "User": "Maria"
+          "Value": 5,
+          "User": "Troels"
+        },
+        {
+          "Value": 1,
+          "User": "Troels"
         }
       ],
       "Comments": [
         {
-          "Body": "helloo",
+          "Body": "hi",
           "ParentComment": null,
           "Votes": [],
-          "WrittenBy": "Maria"
+          "WrittenBy": "Troels"
+        },
+        {
+          "Body": "hi",
+          "ParentComment": null,
+          "Votes": [],
+          "WrittenBy": "Troels"
         }
       ],
-      "WrittenBy": "Maria"
+      "WrittenBy": "Troels"
     },
     {
       "Id": 3,
-      "Header": "new post",
-      "Body": "some descrption",
+      "Header": null,
+      "Body": null,
       "Votes": [],
       "Comments": [],
       "WrittenBy": "Troels"
     },
     {
       "Id": 4,
-      "Header": "Another Post :)",
-      "Body": "Holaa",
+      "Header": "hihi",
+      "Body": "jihih",
       "Votes": [],
       "Comments": [],
       "WrittenBy": "Troels"
-    },
-    {
-      "Id": 5,
-      "Header": "Maria\u0027s second post",
-      "Body": "This is my second post :)",
-      "Votes": [],
-      "Comments": [],
-      "WrittenBy": "Maria"
     }
   ],
   "Users": null

@@ -1,4 +1,4 @@
-﻿
+﻿@page "/"
 @page "/posts"
 @using Entities.Models
 @using Application.NewPost
@@ -19,9 +19,9 @@ else if (!posts.Any())
 }
 else
 {
-    <RadzenPanel AllowCollapse="false" Style="width: 100%;  background-color: #2E2F30" >
+    <RadzenPanel AllowCollapse="false" Style="width: 100%;" >
         <ChildContent>
-            <RadzenCard Class="mt-3" Style="background-color: #DAE0E6 ; border: none">
+            <RadzenCard Class="mt-3" Style="background-color: #DAE0E6 ;">
                 <RadzenDataList PageSize="10" WrapItems="true" AllowPaging="true" 
                                 Data="@posts" TItem="Post" >
                     <Template Context="post">
@@ -29,7 +29,9 @@ else
                             <div class="row">
                                 <div class="col-md-8 text-truncate">
                                     <RadzenBadge BadgeStyle="BadgeStyle.Light" Text=@($"{post.WrittenBy}") Class="mr-1" />
-                                    <b>@(post.Header)</b>
+                                    <a href="" @onclick="@(args => OnPostClicked(post))" @onclick:preventDefault style="text-underline: none; color: black; cursor:pointer; ">
+                                        <b>@(post.Header)</b>
+                                    </a>
                                 </div>
                             </div>
                             <hr style="border: none; background-color: rgba(0,0,0,.08); height: 1px; margin: 1rem 0;" />
@@ -38,7 +40,6 @@ else
                                     <h4 class="mb-0">@(post.Body)</h4>
                                 </div>
                             </div>
-                            <RadzenButton Style="margin-top: 20px" Text="Read More" Icon="add_circle_outline" ButtonStyle="ButtonStyle.Primary" Click=@(args => OnPostClicked(post))></RadzenButton>
                         </RadzenCard>
                     </Template>
                 </RadzenDataList>
@@ -51,7 +52,6 @@ else
 
 @code {
     private ICollection<Post> posts;
-    private int avgVotes;
 
     protected override async Task OnInitializedAsync()
     {

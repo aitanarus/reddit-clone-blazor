@@ -10,37 +10,24 @@
 
 @attribute [Authorize]
 
-<h3>New Post</h3>
-
-<div class="box">
-    <EditForm Model="@newPost" OnValidSubmit="@AddNewPostAsync">
-            <DataAnnotationsValidator/>
-            <ValidationSummary/>
-            <div class="form-group field">
-                <span>
-                    <label>Header: </label>
-                </span>
-                <span>
-                    <InputTextArea @bind-Value="newPost.Header"/>
-                </span>
-            </div>
-            <div class="form-group field">
-                <span>
-                    <label>Body: </label>
-                </span>
-                <span>
-                    <InputTextArea rows="4" @bind-Value="newPost.Body"/>
-                </span>
-            </div>
-            <p class="actions">
-                <RadzenButton Click=@(args => AddNewPostAsync()) Text="Publish" Icon="check_circle" ButtonStyle="ButtonStyle.Success"></RadzenButton>
-            </p>
-        </EditForm>
+<EditForm Model="@newPost" OnValidSubmit="@AddNewPostAsync">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+    <RadzenCard Class="mt-3 mb-5" Style="width: 250px; background-color: #DAE0E6; align-items: center">
+        <b>Post</b>
+        <InputTextArea Placeholder="Title..." @bind-Value="newPost.Header" Class="mb-3"/>
+        <InputTextArea Placeholder="Write something..." @bind-Value="newPost.Body" Class="mb-3"/>
         @if (!string.IsNullOrEmpty(errorLabel))
         {
-            <label>@errorLabel</label>
+            <div class="field">
+                <label style="color: red">
+                    @errorLabel
+                </label>
+            </div>
         }
-</div>
+        <RadzenButton Click=@(args => AddNewPostAsync()) Text="Publish" Icon="check_circle" ButtonStyle="ButtonStyle.Success"></RadzenButton>
+    </RadzenCard>
+</EditForm>
 
 
 @code {
@@ -49,7 +36,8 @@
     public Task<AuthenticationState> AuthState { get; set; } = null!;
     private string? name;
     private IEnumerable<Claim>? userClaims;
-   
+
+    private string value;
     
     private Post newPost = new Post();
     private string errorLabel;
@@ -64,13 +52,12 @@
 
             userClaims = user.Claims;
             name = user.Identity!.Name!;
-            
+           
             await postDAO.AddAsync(new Post(newPost.Header, newPost.Body, new List<Vote>(), new List<Comment>(), name));
         }
         catch (Exception e)
         {
-            errorLabel = e.Message;
-            return;
+            errorLabel = $"Error: {e.Message}";
         }
         navMgr.NavigateTo("/posts");
     }

@@ -8,30 +8,29 @@
 
 <AuthorizeView>
     <NotAuthorized>
-        <div class="card">
-            <h3>Please login</h3>
-            <div class="field">
-                <label>User name:</label>
-                <input type="text" @bind="userName"/>
+        <RadzenCard Class="mt-3 mb-5" Style="background-color: #DAE0E6; align-items: center">
+            <b>Login</b>
+            <div>
+                <RadzenTextBox Placeholder="Username" type="text" @bind-Value="userName"/>
             </div>
-            <div class="field">
-                <label style="text-align: center">Password:</label>
-                <input type="password" @bind="password"/>
+            <div Class="mb-3">
+                <RadzenTextBox Placeholder="Password" type="password" @bind-Value="password"/>
             </div>
-            @if (!string.IsNullOrEmpty(errorLabel))
-            {
-                <div class="field">
-                    <label style="color: red">
-                        @errorLabel
-                    </label>
-                </div>
-            }
             <div class="submit">
-                <RadzenButton Text="Login" Click=@(args => LoginAsync())></RadzenButton>
+                <RadzenButton Text="Login" Click=@(args => LoginAsync()) ButtonStyle="ButtonStyle.Success"></RadzenButton>
             </div>
-        </div>
+        </RadzenCard>
     </NotAuthorized>
 </AuthorizeView>
+
+   @if (string.IsNullOrEmpty(errorLabel))
+     {
+         <div class="field">
+             <label style="color: red">
+                 @errorLabel
+             </label>
+         </div>
+     }
 
 @code {
     

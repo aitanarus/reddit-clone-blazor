@@ -40,7 +40,6 @@ C:\Users\Aitana\RiderProjects\ForumApp\ForumApp\bin\Debug\net6.0\Entities.pdb
 C:\Users\Aitana\RiderProjects\ForumApp\ForumApp\obj\Debug\net6.0\ForumApp.csproj.CopyComplete
 C:\Users\Aitana\RiderProjects\ForumApp\ForumApp\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Aitana\RiderProjects\ForumApp\ForumApp\bin\Debug\net6.0\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Aitana\RiderProjects\ForumApp\ForumApp\obj\Debug\net6.0\scopedcss\Pages\NewPost.razor.rz.scp.css
 C:\Users\Aitana\RiderProjects\ForumApp\ForumApp\bin\Debug\net6.0\forum.json
 C:\Users\Aitana\RiderProjects\ForumApp\ForumApp\obj\Debug\net6.0\scopedcss\Shared\LoginButtons.razor.rz.scp.css
 C:\Users\Aitana\RiderProjects\ForumApp\ForumApp\bin\Debug\net6.0\Radzen.Blazor.dll

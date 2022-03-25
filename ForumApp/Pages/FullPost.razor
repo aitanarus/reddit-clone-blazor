@@ -68,6 +68,7 @@
     <div class="row" style="border: none; margin-top: 25px;">
         <div>
             <h3>Comment Section</h3>
+            <hr/>
         </div>
 
         <RadzenDataList WrapItems="true" AllowPaging="true" Data="@comments" TItem="Comment" PageSize="5" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true">
@@ -87,7 +88,7 @@
                                 <div class="d-inline-block">
                                     <h5>Votes</h5>
                                     <p>@(comment.Votes.Count)</p>
-                                    <RadzenButton Text="Vote"/>
+                                    <RadzenButton ButtonStyle="ButtonStyle.Success" Text="Submit"/>
                                 </div>
                             </div>
                         </div>
@@ -116,11 +117,11 @@
 
     protected override async Task OnInitializedAsync()
     {
-        post = await postDAO.GetById(Convert.ToInt32(PathParam));
-        comments = post.Comments;
         try
         {
-            avgVotes = (int) post.Votes.Average(v => v.Value);
+        post = await postDAO.GetById(Convert.ToInt32(PathParam));
+        comments = post.Comments;
+        avgVotes = (int) post.Votes.Average(v => v.Value);
             numberOfVotes = "Votes: " + post.Votes.Count;
         }
         catch (InvalidOperationException e)
