@@ -1,0 +1,72 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ForumApp
+build_property.RootNamespace = ForumApp
+build_property.ProjectDir = C:\Users\Aitana\RiderProjects\ForumApp\BlazorUI\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Aitana\RiderProjects\ForumApp\BlazorUI
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/Pages/MyPosts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlQb3N0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/Pages/Posts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/Pages/FullPost.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRnVsbFBvc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-xib2scfqwi
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/Pages/NewPost.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3UG9zdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-wln0yw5hzh
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/Shared/LoginButtons.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luQnV0dG9ucy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-9m8b9vby7q
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-9locippnay
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/Shared/RadzenNavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFJhZHplbk5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-uk0jptearf
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Aitana/RiderProjects/ForumApp/BlazorUI/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

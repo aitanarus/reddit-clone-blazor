@@ -7,12 +7,7 @@ public class Comment
     public ICollection<Vote> Votes { get; set; }
     public string WrittenBy { get; set; }
 
-    public Comment(string body, ICollection<Vote> votes, string writtenBy)
-    {
-        Body = body;
-        Votes = votes;
-        WrittenBy = writtenBy;
-    }
+
 
     public Comment(string body, Comment parentComment, ICollection<Vote> votes, string writtenBy)
     {
@@ -22,8 +17,12 @@ public class Comment
         WrittenBy = writtenBy;
     }
 
-    public Comment()
+    public Comment(string body, ICollection<Vote> votes, string writtenBy)
     {
-        
+        Body = body;
+        Votes = votes;
+        WrittenBy = writtenBy;
     }
+    
+    public Comment(){}
 }

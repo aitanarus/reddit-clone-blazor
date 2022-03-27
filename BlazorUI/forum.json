@@ -1,0 +1,121 @@
+{
+  "Posts": [
+    {
+      "Id": 1,
+      "Header": "First Post",
+      "Body": "This is the first post",
+      "Votes": [
+        {
+          "Value": 2,
+          "User": "Troels"
+        },
+        {
+          "Value": 5,
+          "User": "Troels"
+        },
+        {
+          "Value": 5,
+          "User": "Troels"
+        },
+        {
+          "Value": 4,
+          "User": "Troels"
+        },
+        {
+          "Value": 5,
+          "User": "Troels"
+        },
+        {
+          "Value": 3,
+          "User": "Troels"
+        },
+        {
+          "Value": 5,
+          "User": "Troels"
+        }
+      ],
+      "Comments": [
+        {
+          "Body": "hi",
+          "ParentComment": null,
+          "Votes": [],
+          "WrittenBy": "Troels"
+        },
+        {
+          "Body": "hello",
+          "ParentComment": null,
+          "Votes": [],
+          "WrittenBy": "Troels"
+        },
+        {
+          "Body": "hellooo",
+          "ParentComment": null,
+          "Votes": [],
+          "WrittenBy": "Troels"
+        },
+        {
+          "Body": "hellooo",
+          "ParentComment": null,
+          "Votes": [],
+          "WrittenBy": "Troels"
+        }
+      ],
+      "WrittenBy": "Troels"
+    },
+    {
+      "Id": 2,
+      "Header": "Another",
+      "Body": null,
+      "Votes": [
+        {
+          "Value": 5,
+          "User": "Troels"
+        },
+        {
+          "Value": 1,
+          "User": "Troels"
+        }
+      ],
+      "Comments": [
+        {
+          "Body": "hi",
+          "ParentComment": null,
+          "Votes": [],
+          "WrittenBy": "Troels"
+        },
+        {
+          "Body": "hi",
+          "ParentComment": null,
+          "Votes": [],
+          "WrittenBy": "Troels"
+        }
+      ],
+      "WrittenBy": "Troels"
+    },
+    {
+      "Id": 3,
+      "Header": null,
+      "Body": null,
+      "Votes": [],
+      "Comments": [],
+      "WrittenBy": "Troels"
+    },
+    {
+      "Id": 4,
+      "Header": "hihi",
+      "Body": "jihih",
+      "Votes": [],
+      "Comments": [],
+      "WrittenBy": "Troels"
+    },
+    {
+      "Id": 5,
+      "Header": null,
+      "Body": null,
+      "Votes": [],
+      "Comments": [],
+      "WrittenBy": "Troels"
+    }
+  ],
+  "Users": null
+}

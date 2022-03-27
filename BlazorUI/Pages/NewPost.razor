@@ -1,0 +1,65 @@
+﻿@page "/newpost"
+@using Entities.Models
+@using Microsoft.AspNetCore.Components
+@using Contracts.Interfaces
+@using System.Security.Claims
+@using Application.NewPost
+@inject IAuthService authService
+@inject IPostDAO postDAO
+@inject NavigationManager navMgr
+
+@attribute [Authorize]
+
+<EditForm Model="@newPost" OnValidSubmit="@AddNewPostAsync">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+    <RadzenCard Class="mt-3 mb-5" Style="width: 250px; background-color: #DAE0E6; align-items: center">
+        <b>Post</b>
+        <InputTextArea Placeholder="Title..." @bind-Value="newPost.Header" Class="mb-3"/>
+        <InputTextArea Placeholder="Write something..." @bind-Value="newPost.Body" Class="mb-3"/>
+        <RadzenButton Click=@(args => AddNewPostAsync()) Text="Publish" Icon="check_circle" ButtonStyle="ButtonStyle.Success"></RadzenButton>
+        @if (!string.IsNullOrEmpty(errorLabel))
+            {
+                <div class="field">
+                    <label style="color: red">
+                        @errorLabel
+                    </label>
+                </div>
+            }
+    </RadzenCard>
+</EditForm>
+
+
+
+
+@code {
+    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    private string? name;
+    private IEnumerable<Claim>? userClaims;
+
+    private string value;
+    
+    private Post newPost = new Post();
+    private string errorLabel;
+    
+    private async Task AddNewPostAsync()
+    {
+        errorLabel = "";
+        try
+        {
+            AuthenticationState authState = await AuthState;
+            ClaimsPrincipal user = authState.User;
+
+            userClaims = user.Claims;
+            name = user.Identity!.Name!;
+            await postDAO.AddAsync(new Post(newPost.Header, newPost.Body, new List<Vote>(), new List<Comment>(), name));
+            navMgr.NavigateTo("/posts");
+        }
+        catch (Exception e)
+        {
+            errorLabel = $"Error: {e.Message}";
+        }
+    }
+}

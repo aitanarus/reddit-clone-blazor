@@ -9,14 +9,14 @@ public class Post
  public ICollection<Comment> Comments { get; set; }
  public string WrittenBy { get; set; }
 
- public Post(int id, string header, string body, ICollection<Vote> votes, ICollection<Comment> comments, string writtenBy)
+ public Post(int id, string header, string body, ICollection<Vote> votes, ICollection<Comment> comments, string writtenby)
  {
   Id = id;
   Header = header;
   Body = body;
   Votes = votes;
   Comments = comments;
-  WrittenBy = writtenBy;
+  WrittenBy = writtenby;
  }
 
  public Post(string header, string body, string writtenBy)
@@ -35,9 +35,7 @@ public class Post
   WrittenBy = writtenBy;
  }
 
- public Post()
- {
- }
+ public Post() {}
 
 
 }

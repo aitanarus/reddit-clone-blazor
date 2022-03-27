@@ -19,6 +19,7 @@ public class JsonPostDAO : IPostDAO
 
     public async Task<Post> AddAsync(Post post)
     {
+
         int largestId = jsonContext.Forum.Posts.Max(t => t.Id);
         int nextId = largestId + 1;
         post.Id = nextId;

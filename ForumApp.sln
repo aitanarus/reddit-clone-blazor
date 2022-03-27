@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForumApp", "ForumApp\ForumApp.csproj", "{B6CBDA4E-B89E-4FF7-8DC8-CEA822F7DE35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorUI", "BlazorUI\BlazorUI.csproj", "{B6CBDA4E-B89E-4FF7-8DC8-CEA822F7DE35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{1B8D1A93-D66D-47C4-AF86-C241E0972601}"
 EndProject
