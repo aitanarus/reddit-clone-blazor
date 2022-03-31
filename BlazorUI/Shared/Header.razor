@@ -1,0 +1,28 @@
+﻿@using Entities
+@using Entities.Models
+@using ForumApp.Pages
+
+<MudAppBar Fixed="true" style="background:white">
+    <MudImage Style="margin-right: 20px;" Fluid="true" Src="img/reddit-1-logo-png-transparent.png" Width="100" Alt="Reddit Logo" Class="rounded"/>
+    <MudSpacer></MudSpacer>
+    <MudTextField @bind-Value="TextValue" Label="Search Reddit" Variant="Variant.Outlined" Margin="Margin.Dense" Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Search" />
+    <HeaderButtons></HeaderButtons>
+</MudAppBar>
+
+
+@code {
+    
+    public string TextValue { get; set; }
+    
+    private void Home()
+    {
+        
+    }
+
+    private void LogIn()
+    {
+        
+    }
+    
+
+}

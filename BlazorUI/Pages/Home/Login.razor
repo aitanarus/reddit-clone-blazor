@@ -1,0 +1,71 @@
+﻿@using Contracts.Interfaces
+@using Entities.Models
+@using Microsoft.AspNetCore.Components
+@inject IAuthService authService
+@inject NavigationManager navMgr
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+
+<AuthorizeView>
+    <NotAuthorized>
+        <MudGrid>
+            <MudItem xs="12" sm="7">
+                <MudPaper Style="width: 500px" Elevation="0">
+                    <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" Style="padding: 20px 50px">
+                        <MudTextField @bind-Value="@userName" T="string" Label="Username" Required="true" RequiredError="User name is required!"/>
+                        <MudTextField @bind-Value="@password" T="string" Label="Password" HelperText="Choose a strong password" @ref="pwField1"
+                                      InputType="InputType.Password"
+                                      RequiredError="Password is required!"/>
+                        
+                    </MudForm>
+                </MudPaper>
+                <MudPaper Class="pa-4 ma-4" Elevation="0">
+                    <MudButton Variant="Variant.Filled" Style="background-color:#1484D6; color:white; border-radius: 20px;" DisableElevation="true" OnClick="LoginAsync">Validate</MudButton>
+                    <MudButton Variant="Variant.Filled" Color="Color.Error" Style="border-radius: 20px;" DisableElevation="true" OnClick="@(() => form.Reset())" Class="mx-2">Reset</MudButton>
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+    </NotAuthorized>
+</AuthorizeView>
+
+   @if (string.IsNullOrEmpty(errorLabel))
+     {
+         <div class="field">
+             <label style="color: red">
+                 @errorLabel
+             </label>
+         </div>
+     }
+
+@code {
+    
+    private User newLogIn;
+    
+    
+    private string userName;
+    private string password;
+    private string errorLabel;
+    
+    bool success;
+    string[] errors = { };
+    MudTextField<string> pwField1;
+    MudForm form;
+    
+
+    private async Task LoginAsync()
+    {
+        Console.WriteLine("HI");
+        errorLabel = "";
+        try
+        {
+            await authService.LoginAsync(userName, password);
+            navMgr.NavigateTo("/posts");
+        }
+        catch (Exception e)
+        {
+            errorLabel = $"Error: {e.Message}";
+        }
+    }
+    
+    
+}

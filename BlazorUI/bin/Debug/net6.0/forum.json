@@ -4,6 +4,8 @@
       "Id": 1,
       "Header": "First Post",
       "Body": "This is the first post",
+      "Image": null,
+      "DateTime": "0001-01-01T00:00:00",
       "Votes": [
         {
           "Value": 2,
@@ -27,6 +29,10 @@
         },
         {
           "Value": 3,
+          "User": "Troels"
+        },
+        {
+          "Value": 5,
           "User": "Troels"
         },
         {
@@ -58,56 +64,35 @@
           "ParentComment": null,
           "Votes": [],
           "WrittenBy": "Troels"
+        },
+        {
+          "Body": "I love this post",
+          "ParentComment": null,
+          "Votes": [],
+          "WrittenBy": "Troels"
         }
       ],
       "WrittenBy": "Troels"
     },
     {
       "Id": 2,
-      "Header": "Another",
-      "Body": null,
-      "Votes": [
-        {
-          "Value": 5,
-          "User": "Troels"
-        },
-        {
-          "Value": 1,
-          "User": "Troels"
-        }
-      ],
-      "Comments": [
-        {
-          "Body": "hi",
-          "ParentComment": null,
-          "Votes": [],
-          "WrittenBy": "Troels"
-        },
-        {
-          "Body": "hi",
-          "ParentComment": null,
-          "Votes": [],
-          "WrittenBy": "Troels"
-        }
-      ],
+      "Header": "New Post",
+      "Body": "Another post",
+      "Image": null,
+      "DateTime": "0001-01-01T00:00:00",
+      "Votes": [],
+      "Comments": [],
       "WrittenBy": "Troels"
     },
     {
       "Id": 3,
-      "Header": null,
-      "Body": null,
-      "Votes": [],
-      "Comments": [],
-      "WrittenBy": "Troels"
-    },
-    {
-      "Id": 4,
-      "Header": "hihi",
-      "Body": "jihih",
+      "Header": "hi",
+      "Body": "hi",
+      "Image": null,
+      "DateTime": "2022-03-31T00:44:22.7292451+02:00",
       "Votes": [],
       "Comments": [],
       "WrittenBy": "Troels"
     }
-  ],
-  "Users": null
+  ]
 }

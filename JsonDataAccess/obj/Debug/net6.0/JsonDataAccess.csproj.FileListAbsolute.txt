@@ -1,6 +1,5 @@
 C:\Users\Aitana\RiderProjects\ForumApp\JsonDataAccess\bin\Debug\net6.0\JsonDataAccess.deps.json
 C:\Users\Aitana\RiderProjects\ForumApp\JsonDataAccess\bin\Debug\net6.0\JsonDataAccess.dll
-C:\Users\Aitana\RiderProjects\ForumApp\JsonDataAccess\bin\Debug\net6.0\ref\JsonDataAccess.dll
 C:\Users\Aitana\RiderProjects\ForumApp\JsonDataAccess\bin\Debug\net6.0\JsonDataAccess.pdb
 C:\Users\Aitana\RiderProjects\ForumApp\JsonDataAccess\bin\Debug\net6.0\Entities.dll
 C:\Users\Aitana\RiderProjects\ForumApp\JsonDataAccess\bin\Debug\net6.0\Entities.pdb
@@ -17,3 +16,4 @@ C:\Users\Aitana\RiderProjects\ForumApp\JsonDataAccess\bin\Debug\net6.0\Applicati
 C:\Users\Aitana\RiderProjects\ForumApp\JsonDataAccess\bin\Debug\net6.0\Contracts.dll
 C:\Users\Aitana\RiderProjects\ForumApp\JsonDataAccess\bin\Debug\net6.0\Application.pdb
 C:\Users\Aitana\RiderProjects\ForumApp\JsonDataAccess\bin\Debug\net6.0\Contracts.pdb
+C:\Users\Aitana\RiderProjects\ForumApp\JsonDataAccess\obj\Debug\net6.0\refint\JsonDataAccess.dll

@@ -3,6 +3,9 @@ using Application.NewPost;
 using Contracts.Interfaces;
 using JsonDataAccess.DataAccess;
 using Microsoft.AspNetCore.Components.Authorization;
+using MudBlazor;
+using MudBlazor.Services;
+using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,7 @@ builder.Services.AddScoped<IAuthService, AuthServiceImpl>();
 builder.Services.AddScoped<IPostDAO, JsonPostDAO>();
 builder.Services.AddScoped<JsonContext>();
 builder.Services.AddScoped<AuthenticationStateProvider, SimpleAuthenticationProvider>();
+builder.Services.AddMudServices();
 
 var app = builder.Build();
 

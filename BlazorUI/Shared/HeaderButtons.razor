@@ -1,0 +1,27 @@
+﻿@using Contracts.Interfaces
+@using ForumApp.Pages
+
+@inject NavigationManager navMgr
+@inject IAuthService authService
+
+<AuthorizeView>
+    <Authorized>
+        <MudIconButton Icon="@Icons.Material.Filled.Home" aria-label="Home"></MudIconButton>
+        <MudIconButton Icon="@Icons.Sharp.Add" Color="Color.Inherit" @onclick="@this.NewPost"/>
+        <LoginButtons></LoginButtons>
+        <RadzenGravatar ></RadzenGravatar>
+    </Authorized>
+    <NotAuthorized>
+        <LoginButtons></LoginButtons>
+        <RadzenGravatar Email="user@example.com"></RadzenGravatar>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+    private void NewPost()
+    {
+        navMgr.NavigateTo("/newpost");
+    }
+
+}

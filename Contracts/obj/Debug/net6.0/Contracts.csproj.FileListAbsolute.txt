@@ -1,6 +1,5 @@
 C:\Users\Aitana\RiderProjects\ForumApp\Contracts\bin\Debug\net6.0\Contracts.deps.json
 C:\Users\Aitana\RiderProjects\ForumApp\Contracts\bin\Debug\net6.0\Contracts.dll
-C:\Users\Aitana\RiderProjects\ForumApp\Contracts\bin\Debug\net6.0\ref\Contracts.dll
 C:\Users\Aitana\RiderProjects\ForumApp\Contracts\bin\Debug\net6.0\Contracts.pdb
 C:\Users\Aitana\RiderProjects\ForumApp\Contracts\bin\Debug\net6.0\Entities.dll
 C:\Users\Aitana\RiderProjects\ForumApp\Contracts\bin\Debug\net6.0\Entities.pdb
@@ -13,3 +12,4 @@ C:\Users\Aitana\RiderProjects\ForumApp\Contracts\obj\Debug\net6.0\Contracts.cspr
 C:\Users\Aitana\RiderProjects\ForumApp\Contracts\obj\Debug\net6.0\Contracts.dll
 C:\Users\Aitana\RiderProjects\ForumApp\Contracts\obj\Debug\net6.0\ref\Contracts.dll
 C:\Users\Aitana\RiderProjects\ForumApp\Contracts\obj\Debug\net6.0\Contracts.pdb
+C:\Users\Aitana\RiderProjects\ForumApp\Contracts\obj\Debug\net6.0\refint\Contracts.dll

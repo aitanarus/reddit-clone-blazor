@@ -1,0 +1,107 @@
+﻿@page "/"
+@page "/posts"
+@using Entities.Models
+@using Application.NewPost
+@inject IPostDAO postDAO
+@inject NavigationManager navMgr
+
+@if (posts == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else if (!posts.Any())
+{
+    <p>
+        <em>No posts items exist. Please add some.</em>
+    </p>
+}
+else
+{
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-5 corps">
+                <RadzenDataList WrapItems="true"
+                                                Data="@posts" TItem="Post">
+                    <Template Context="post">
+                        <RadzenCard Style="width: 50%;">
+                            <div class="flex-row">
+                                <div class="flex-column col-md-8 text-truncate">
+                                    <RadzenImage Path="@photo" Class="rounded-circle float-left mr-3" Style="width: 24px; height: 24px;"/>
+                                    <RadzenBadge BadgeStyle="BadgeStyle.Light" Text=@($"{post.WrittenBy}") Class="mr-1"/>
+                                    <RadzenLabel Text=@($"{post.DateTime:dddd, dd MMMM yyyy}") Style="margin-right: 5px; font-size: 11px"/>
+                                </div>
+                            </div>
+                            <hr style="border: none; background-color: rgba(0,0,0,.08); height: 1px; margin: 1rem 0;"/>
+                            <div class="flex-row mb-3">
+                                <a href="" @onclick="@(args => OnPostClicked(post))" @onclick:preventDefault style="text-underline: none; color: black; cursor:pointer; ">
+                                    <b>@(post.Header)</b>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <div class="flex-column col text-truncate" style="text-align: center; margin-bottom: 10px">
+                                    <RadzenImage Path="@photo" Class="float-left mr-3" Style="width: 100%; height: auto"/>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row align-items-center">
+                                <div>
+                                    <h4 class="mb-0">@(post.Body)</h4>
+                                </div>
+                            </div>
+                            @if (!string.IsNullOrEmpty(photo))
+                            {
+                                <div class="d-flex flex-row align-items-center">
+                                    <RadzenIcon Icon="favorite"/>
+                                    <RadzenLabel Text=@($"{likes}") Style="margin-right: 5px"/>
+                                    <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Default"/>
+                                </div>
+                            }
+                        </RadzenCard>
+                    </Template>
+                </RadzenDataList>
+            </div>
+            <div class="col-lg-3 gauche">
+                <MudPaper Elevation="0">
+                                    <MudList>
+                                        <h4>Communities</h4>
+                                        <MudListItem Avatar="@Icons.Material.Filled.Image">
+                                            Photos
+                                        </MudListItem>
+                                        <MudListItem Avatar="@Icons.Material.Filled.Work">
+                                            Work
+                                        </MudListItem>
+                                        <MudListItem Avatar="@Icons.Material.Filled.Umbrella">
+                                            Vacation
+                                        </MudListItem>
+                                    </MudList>
+                                </MudPaper>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+    </div>
+    
+
+
+    
+@code {
+    
+    private ICollection<Post> posts;
+    private string photo ="img/caption.jpg";
+
+    private string likes = "23k";
+
+    protected override async Task OnInitializedAsync()
+    {
+        posts = await postDAO.GetAsync();
+    }
+
+    private void OnPostClicked(Post item)
+    {
+        navMgr.NavigateTo($"/fullpost/{item.Id}");
+    }
+}
+}

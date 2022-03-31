@@ -1,33 +1,42 @@
-﻿@page "/logoutButton"
-@using Contracts.Interfaces
+﻿@using Contracts.Interfaces
+@using ForumApp.Pages
+@using ForumApp.Pages.Home
+@using DialogOptions = MudBlazor.DialogOptions
+@using DialogService = MudBlazor.DialogService
 
 @inject NavigationManager navMgr
 @inject IAuthService authService
+@inject IDialogService DialogService
+
 
 <AuthorizeView>
     <Authorized>
-        <div class="button">
-            <b>Log Out <img class="icon" src="img/Logout.png" @onclick="Logout"/></b>
-        </div>
+        <RadzenButton Size="ButtonSize.Small" ButtonStyle="ButtonStyle.Light" Style="margin-right: 50px; margin-left: 100px; border-radius:20px;" Click=@(Logout)>Log out</RadzenButton>
     </Authorized>
     <NotAuthorized>
-        <div class="button">
-            <b>Log In <img class="icon" src="img/Login.png" @onclick="Login"/></b>
-        </div>
+        <RadzenButton Size="ButtonSize.Small" ButtonStyle="ButtonStyle.Primary" Style="margin-right: 20px; margin-left: 50px; border-radius: 20px;" Click=@(Login)>Log in</RadzenButton>
+        <RadzenButton Size="ButtonSize.Small" Text="Sign Up" ButtonStyle="ButtonStyle.Secondary" Style="margin-right: 50px; border-radius: 20px;" Click=@(SignUp) />
     </NotAuthorized>
 </AuthorizeView>
 
 @code {
+    
 
     private void Login()
     {
-        navMgr.NavigateTo("/Login");
+        DialogOptions options = new DialogOptions() {CloseButton = true, CloseOnEscapeKey = true};
+        DialogService.Show<Login>("Log In", options);
     }
 
     private async Task Logout()
     {
         await authService.LogoutAsync();
-        navMgr.NavigateTo("/Login");
+    }
+    
+    private void SignUp()
+    {
+        DialogOptions options = new DialogOptions() {CloseButton = true, CloseOnEscapeKey = true};
+        DialogService.Show<SignUp>("Sign Up", options);
     }
 
 }
